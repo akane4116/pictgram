@@ -15,12 +15,5 @@ class FavoritesController < ApplicationController
     redirect_to topics_path, danger: 'お気に入りの登録に失敗しました'
    end
   end
-  
-    def show
-   @topic= Topic.find_by(id_params[:id])
-   @user = @topic_user
-   @favorites_count = Favorite.where(topic_id: @topic.id).count
-    end
-   
 end
 

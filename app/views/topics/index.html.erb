@@ -13,6 +13,7 @@
               <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
              <% end %>
             <% end %>
+            <%= topic.favorite_users.count %>
            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
            <p class="topic-text">
              <%= topic.description %>
