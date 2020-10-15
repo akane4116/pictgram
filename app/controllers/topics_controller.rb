@@ -9,6 +9,12 @@ class TopicsController < ApplicationController
   end
   
   
+  def show
+    @topic = Topic.find(params[:id])
+    @comments = @topic.comments
+    @comment = Comment.new
+  end
+  
   def create
     @topic = current_user.topics.new(topic_params)
     
@@ -22,7 +28,8 @@ class TopicsController < ApplicationController
 
 
  private
- def topic_params
+  def topic_params
    params.require(:topic).permit(:image, :description)
- end
+  end
+ 
 end

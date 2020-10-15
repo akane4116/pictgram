@@ -17,8 +17,10 @@
              <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon-red' %>
             <% end %>
            <% end %>
-            <%= topic.favorite_users.count %>
-           <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+             <%= topic.favorite_users.count %>
+            <%= link_to new_topic_comment_path(topic_id: topic.id), method: :post do %>
+            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+            <% end %>
            <p class="topic-text">
              <%= topic.description %>
            </p>
@@ -27,4 +29,6 @@
      </div>
     <% end %> 
   </div>
-</div>
+</div
+
+
