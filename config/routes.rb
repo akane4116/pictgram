@@ -20,7 +20,7 @@ Rails.application.routes.draw do
  delete '/favorites', to: 'favorites#destroy'
  
  resources :topics do
-  resources :comments, only: [:index,:show,:create,:update,:desroy,:new,:edit]
+  resources :comments
  end
  
 end

@@ -10,7 +10,9 @@ class CommentsController < ApplicationController
   end
     
  def create
+    @user = User.new
     @comment = current_user.comments.new(comment_params)
+    
     
     if @comment.save
       redirect_to topic_path(params[:topic_id]), success: "コメントしました"
@@ -19,6 +21,6 @@ class CommentsController < ApplicationController
   
  private
   def comment_params
-    params.require(:comment).permit(:comment_content, :user_id, :topic_id)
+    params.permit(:comment_content, :user_id, :topic_id)#require(:comment).permit(:comment_content, :user_id, :topic_id)
   end
 end

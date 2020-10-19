@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
-    @comments = @topic.comments
+    @comments = @topic.comments.build
     @comment = Comment.new
   end
   
