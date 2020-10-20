@@ -14,11 +14,13 @@ ActiveRecord::Schema.define(version: 2020_10_12_044902) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
+    t.bigint "topic_id"
     t.bigint "user_id"
     t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_comments_on_comment_id"
+    t.index ["topic_id"], name: "index_comments_on_topic_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -47,5 +49,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_044902) do
   end
 
   add_foreign_key "comments", "comments"
+  add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
 end
