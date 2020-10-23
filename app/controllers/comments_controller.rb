@@ -9,8 +9,9 @@ class CommentsController < ApplicationController
   end
     
  def create
-    @comment = current_user.comments.new(comment_params)
-     @comment = Topic.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @comment = @topic.comments.new(comment_params)
+    @comment.user_id = current_user.id
     
     if @comment.save
       redirect_to topic_path(params[:topic_id]), success: "コメントしました"
