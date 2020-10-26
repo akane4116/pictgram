@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all.includes(:favorite_users)
+    @comment = Comment.new
   end
   
   
@@ -11,8 +12,8 @@ class TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
-    @comments = @topic.comments.build
-    @comment = Comment.new
+    @comments = @topic.comments
+    @comment = current_user.comments.new
   end
   
   def create
