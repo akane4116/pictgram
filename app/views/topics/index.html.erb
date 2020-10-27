@@ -24,8 +24,8 @@
            <p class="topic-text">
                <%= topic.description %>
              </p>
-             <p class="comment-text">
-               <%= topic.comments.each do |comment| %>
+               <% topic.comments.each do |comment| %>
+               <p class="comment.content">
                 <%= comment.content %>
              </p>
                <% end %>
