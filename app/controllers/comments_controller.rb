@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.content = params[:comment][:content]
     
+
     if @comment.save
       flash[:success] = 'コメントしました'
       redirect_to topics_path
